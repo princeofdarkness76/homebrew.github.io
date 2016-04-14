@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang }}">
+<html {% if page.direction == "rtl" %}dir="rtl" {% endif %}lang="{{ page.lang }}">
   <head>
     <meta charset="utf-8">
     <meta name="dc.creator" content="Rémi Prévost - http://exomel.com">
@@ -34,18 +34,6 @@
         }
     </style>
     {% endif %}
-    {% if page.direction == "rtl" %}
-    <style type="text/css">
-        #informations .row .col-1 {
-            text-align: right;
-            direction: rtl;
-            float: right;
-        }
-        #informations .row .col-2 {
-            float: left;
-        }
-    </style>
-    {% endif %}
   </head>
   <body>
     <div id="wrap">
@@ -70,7 +58,7 @@
             <div class="group row">
               <h2 id="install">{{ page.pagecontent.install.install }}</h2>
               <br>
-              <pre style='clear:both;text-align:center;margin-bottom:0.9em'><code id='selectable' onclick="selectText(this)">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+              <pre style='clear:both;text-align:center;margin-bottom:0.9em'><code id='selectable' onclick="selectText(this)">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
               <div class="col-1">
                 <p>{{ page.pagecontent.install.paste }}</p>
               </div>
@@ -191,7 +179,7 @@ end
         </ul>
       </div>
     </div>
-    <a href="https://github.com/Homebrew/homebrew"><img id="forkme" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-grey@2x.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/Homebrew/brew/"><img id="forkme" src="https://aral.github.com/fork-me-on-github-retina-ribbons/right-grey@2x.png" alt="Fork me on GitHub"></a>
     <script>
       function selectText(elem) {
         if (document.selection) {
